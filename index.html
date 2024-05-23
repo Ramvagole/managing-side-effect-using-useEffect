@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="text/babel">
+
+    // Your  code will go here
+    function App(){
+        let data
+        let [a,setVal]=React.useState(0)
+        React.useEffect((v)=>{
+            data=setInterval(()=>{console.log(Date())},2000)
+            return ()=>{
+                clearInterval(data)
+            }
+        })
+        console.log("outside")
+        return(
+            <>
+            <button onClick={()=>setVal(a+1)}>Time</button>
+            </>
+        )
+    }
+    ReactDOM.render(<App/>,document.getElementById("root"))
+  </script>
+</html>
